@@ -6,7 +6,7 @@ import { Button } from "../UI/Button";
 export const AddUser = (props) => {
     const [enteredUsername, setEnteredUsername] = useState("");
     const [enteredAge, setEnteredAge] = useState("");
-    const addUsrHandler = (event) => {
+    const addUesrHandler = (event) => {
         event.preventDefault();
         if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
             return;
@@ -14,7 +14,8 @@ export const AddUser = (props) => {
         if (+enteredAge < 1) {
             return;
         }
-        console.log(enteredUsername, enteredAge);
+        // console.log(enteredUsername, enteredAge);
+        props.onAddUser(enteredUsername, enteredAge);
         setEnteredUsername("");
         setEnteredAge("");
     };
@@ -29,7 +30,7 @@ export const AddUser = (props) => {
 
     return (
         <Card className={classes.input}>
-            <form onSubmit={addUsrHandler}>
+            <form onSubmit={addUesrHandler}>
                 <label htmlFor='username'>Username</label>
                 <input
                     id='username'
